@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react'
-import { act } from '@testing-library/react'
 
 const Timer = ({ isEnd, restart }) => {
   const [seconds, setSeconds] = useState(0)
@@ -8,9 +7,7 @@ const Timer = ({ isEnd, restart }) => {
     let interval
     if (!isEnd) {
       interval = setInterval(() => {
-        act(() => {
-          setSeconds((prevSeconds) => prevSeconds + 1)
-        })
+        setSeconds((prevSeconds) => prevSeconds + 1)
       }, 1000)
     }
     return () => clearInterval(interval)
